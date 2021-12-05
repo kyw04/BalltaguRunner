@@ -187,5 +187,5 @@ MonoBehaviour:
   attackDamage: 1
   moveSpeed: 2.5
   jumpPower: 450
-  attackSpeed: 0.5
-  attackDestroyTime: 0.25
+  attackSpeed: 0.6
+  attackDestroyTime: 0.4

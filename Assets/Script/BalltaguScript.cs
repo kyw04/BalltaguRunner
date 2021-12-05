@@ -16,7 +16,7 @@ public class BalltaguScript : MonoBehaviour
     private int doublejumpCount;
     //private float jumpTimer;
     //private float jumpTimeLimit = 0.1f;
-    private bool isAttacking = false;
+    private bool attackTime = false;
 
     private float moveSet;
     private Vector3 mainCamera;
@@ -74,9 +74,10 @@ public class BalltaguScript : MonoBehaviour
         //    jumpTimer = 0.0f;
         //}
 
-        if (inputAttack && !isAttacking)
+        if (inputAttack && !attackTime && !GetComponent<Animator>().GetBool("isAttack"))
         {
-            isAttacking = true;
+            attackTime = true;
+            GetComponent<Animator>().SetBool("isAttack", true);
             GameObject newAttackBox = Instantiate(AttackBox);
             newAttackBox.transform.position = transform.position + new Vector3(1, 0, 0);
             StartCoroutine(attack_time(newAttackBox));
@@ -115,8 +116,9 @@ public class BalltaguScript : MonoBehaviour
     {
         yield return new WaitForSeconds(ability.attackDestroyTime);
         Destroy(attack.gameObject);
+        GetComponent<Animator>().SetBool("isAttack", false);
         yield return new WaitForSeconds(ability.attackSpeed);
-        isAttacking = false;
+        attackTime = false;
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {

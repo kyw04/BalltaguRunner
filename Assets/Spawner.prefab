@@ -43,5 +43,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 694a98cdb5f85704787810c775166715, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  entity: {fileID: 7347301284614947138, guid: 4b68e07966f0c3c44bee24ddf5a481a6, type: 3}
+  balltagu: {fileID: 0}
+  entity: {fileID: 0}
   spawningTime: 5

@@ -11,19 +11,19 @@ C:\Program Files\Unity\Hub\Editor\2020.3.11f1\Editor\Unity.exe
 -name
 AssetImportWorker0
 -projectPath
-C:/Users/rladu/OneDrive/바탕 화면/유니티/balltagu
+C:/balltagu
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-57575
-Successfully changed project path to: C:/Users/rladu/OneDrive/바탕 화면/유니티/balltagu
-C:/Users/rladu/OneDrive/바탕 화면/유니티/balltagu
+59492
+Successfully changed project path to: C:/balltagu
+C:/balltagu
 Using Asset Import Pipeline V2.
-Refreshing native plugins compatible for Editor in 64.93 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 61.71 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2020.3.11f1 (99c7afb366b3)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2020.3.11f1/Editor/Data/Resources/UnitySubsystems
-[Subsystems] Discovering subsystems at path C:/Users/rladu/OneDrive/바탕 화면/유니티/balltagu/Assets
+[Subsystems] Discovering subsystems at path C:/balltagu/Assets
 GfxDevice: creating device client; threaded=0
 Direct3D:
     Version:  Direct3D 11.0 [level 11.1]
@@ -35,96 +35,125 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2020.3.11f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2020.3.11f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2020.3.11f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56992
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56844
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.3.11f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.3.11f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.004785 seconds.
+Registered in 0.004309 seconds.
 Native extension for WindowsStandalone target not found
 Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 87.36 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 76.73 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  4.710 seconds
+- Completed reload, in  4.245 seconds
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.006253 seconds.
+Registered in 0.013963 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
 Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 0.58 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 0.49 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  3.089 seconds
+- Completed reload, in  2.612 seconds
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
 Launched and connected shader compiler UnityShaderCompiler.exe after 0.09 seconds
-Refreshing native plugins compatible for Editor in 0.54 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 0.92 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 1433 Unused Serialized files (Serialized files now loaded: 0)
 System memory in use before: 66.1 MB.
 System memory in use after: 66.1 MB.
 
 Unloading 19 unused Assets to reduce memory usage. Loaded Objects now: 1868.
-Total: 3.969800 ms (FindLiveObjects: 0.275100 ms CreateObjectMapping: 0.061600 ms MarkObjects: 3.513800 ms  DeleteObjects: 0.114800 ms)
+Total: 1.944700 ms (FindLiveObjects: 0.151900 ms CreateObjectMapping: 0.039400 ms MarkObjects: 1.668900 ms  DeleteObjects: 0.083000 ms)
 
 ========================================================================
 Received Import Request.
-  path: Assets/Scenes/SampleScene.unity
-  artifactKey: Guid(9fc0d4010bbf28b4594072e72b8655ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/SampleScene.unity using Guid(9fc0d4010bbf28b4594072e72b8655ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3f1d61b41af2edd9b6a58ec20e92427a') in 0.052675 seconds
-  Import took 0.064436 seconds .
-
-========================================================================
-Received Prepare
-Refreshing native plugins compatible for Editor in 9.50 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 12 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 37.8 MB.
-System memory in use after: 37.9 MB.
-
-Unloading 12 unused Assets to reduce memory usage. Loaded Objects now: 1868.
-Total: 4.541300 ms (FindLiveObjects: 0.246400 ms CreateObjectMapping: 0.072200 ms MarkObjects: 4.127500 ms  DeleteObjects: 0.092800 ms)
+  path: Assets/Image/balltagu_attack_4.png
+  artifactKey: Guid(aebc0f663d2322d4f938a935cbc2f5a0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Image/balltagu_attack_4.png using Guid(aebc0f663d2322d4f938a935cbc2f5a0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1928cb8f04f8d9003fd61fdbfdda29ea') in 0.231645 seconds
+  Import took 0.235221 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 78.381634 seconds.
-  path: Assets/Attack.prefab
-  artifactKey: Guid(6e67738f7d747cb4a9d2bc7792226270) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Attack.prefab using Guid(6e67738f7d747cb4a9d2bc7792226270) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd0ab424f8dcd403fa220147d02fc1cfb') in 0.234001 seconds
-  Import took 0.244641 seconds .
+  Time since last request: 0.000436 seconds.
+  path: Assets/Image/balltagu_attack_3.png
+  artifactKey: Guid(897c37318d9ab6a4f87b251542594aab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Image/balltagu_attack_3.png using Guid(897c37318d9ab6a4f87b251542594aab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '46617ab649cbd60f598f839f7bd065a3') in 0.034146 seconds
+  Import took 0.039589 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000316 seconds.
-  path: Assets/Balltagu.prefab
-  artifactKey: Guid(a9a922384d64cad4f8cc34ee3a07064e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Balltagu.prefab using Guid(a9a922384d64cad4f8cc34ee3a07064e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b4a64fc6c7804575b70d2e8c9db88819') in 0.051949 seconds
-  Import took 0.063421 seconds .
+  Time since last request: 0.000333 seconds.
+  path: Assets/Image/balltagu_attack_5.png
+  artifactKey: Guid(5dd93dda57e9b2d48917e4617bef0693) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Image/balltagu_attack_5.png using Guid(5dd93dda57e9b2d48917e4617bef0693) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '25f730df4982744c42ec37229db9cf47') in 0.032372 seconds
+  Import took 0.036560 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000352 seconds.
+  path: Assets/Image/balltagu_attack_2.png
+  artifactKey: Guid(a8bbd894775d3cd419a00712051ea10a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Image/balltagu_attack_2.png using Guid(a8bbd894775d3cd419a00712051ea10a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2911e8d8950bcb63530310794a3f5c70') in 0.039337 seconds
+  Import took 0.046802 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000324 seconds.
+  path: Assets/Image/balltagu_attack_1.png
+  artifactKey: Guid(5d798a54e41ff0a4899dbc8f85845546) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Image/balltagu_attack_1.png using Guid(5d798a54e41ff0a4899dbc8f85845546) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9f2faca923b108b850f1bfc86cd77ea7') in 0.040703 seconds
+  Import took 0.049231 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.770895 seconds.
+  path: Assets/Animation/BalltaguAnimationController.controller
+  artifactKey: Guid(db6190a5346586647bf7b1cd07eaf04e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/BalltaguAnimationController.controller using Guid(db6190a5346586647bf7b1cd07eaf04e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f85221edf361c83e13fa2bebbf5f5138') in 0.024899 seconds
+  Import took 0.031507 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.001360 seconds.
+  path: Assets/Animation/BalltaguAnimationController.controller
+  artifactKey: Guid(db6190a5346586647bf7b1cd07eaf04e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/BalltaguAnimationController.controller using Guid(db6190a5346586647bf7b1cd07eaf04e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f85221edf361c83e13fa2bebbf5f5138') in 0.006569 seconds
+  Import took 0.014297 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 42.109803 seconds.
+  path: Assets/Script/BalltaguScript.cs
+  artifactKey: Guid(59a021b6f4a922c4591e4c3d27b75406) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Script/BalltaguScript.cs using Guid(59a021b6f4a922c4591e4c3d27b75406) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ecaa0baf3aa27b5f40fefd76d0704978') in 0.027558 seconds
+  Import took 0.034619 seconds .
 
 ========================================================================
 Received Prepare
 Registering precompiled user dll's ...
-Registered in 0.008398 seconds.
+Registered in 0.011146 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
 Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 0.62 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 1.33 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  2.149 seconds
+- Completed reload, in  4.736 seconds
 Platform modules already initialized, skipping
 Switching build target platform(19) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
-Refreshing native plugins compatible for Editor in 0.59 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 1.31 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 1431 Unused Serialized files (Serialized files now loaded: 0)
 System memory in use before: 69.1 MB.
 System memory in use after: 69.2 MB.
 
-Unloading 14 unused Assets to reduce memory usage. Loaded Objects now: 1878.
-Total: 3.414000 ms (FindLiveObjects: 0.197500 ms CreateObjectMapping: 0.070000 ms MarkObjects: 3.062300 ms  DeleteObjects: 0.082400 ms)
+Unloading 14 unused Assets to reduce memory usage. Loaded Objects now: 1877.
+Total: 9.125800 ms (FindLiveObjects: 0.786000 ms CreateObjectMapping: 0.288200 ms MarkObjects: 7.785400 ms  DeleteObjects: 0.257500 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
