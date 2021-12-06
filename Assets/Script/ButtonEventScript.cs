@@ -1,51 +1,53 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ButtonEventScript : MonoBehaviour
 {
-    GameObject balltagu;
-    BalltaguScript balltaguScript;
+    private GameObject balltagu;
+    private BalltaguScript mainScript;
     void Start()
     {
         balltagu = GameObject.Find("Balltagu");
-        balltaguScript = balltagu.GetComponent<BalltaguScript>();
+        mainScript = balltagu.GetComponent<BalltaguScript>();
     }
     public void LeftButtonDown()
     {
-        balltaguScript.inputLeft = true;
+        mainScript.inputLeft = true;
         //Debug.Log("Left Down!");
     }
     public void LeftButtonUp()
     {
-        balltaguScript.inputLeft = false;
+        mainScript.inputLeft = false;
         //Debug.Log("Left UP!");
     }
     public void RightButtonDown()
     {
-        balltaguScript.inputRight = true;
+        mainScript.inputRight = true;
         //Debug.Log("Right Down!");
     }
     public void RightButtonUp()
     {
-        balltaguScript.inputRight = false;
+        mainScript.inputRight = false;
         //Debug.Log("Right UP!");
     }
+
     
     public void JumpButtonDown()
     {
-        balltaguScript.inputJump = true;
+        mainScript.inputJump = true;
     }
     public void JumpButtonUp()
     {
-        balltaguScript.inputJump = false;
+        mainScript.inputJump = false;
     }
     public void AttackButtonDown()
     {
-        balltaguScript.inputAttack = true;
+        mainScript.inputAttack = true;
     }
     public void AttackButtonUp()
     {
-        balltaguScript.inputAttack = false;
+        mainScript.inputAttack = false;
     }
 }

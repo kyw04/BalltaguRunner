@@ -16,7 +16,7 @@ public class BalltaguScript : MonoBehaviour
     private int doublejumpCount;
     //private float jumpTimer;
     //private float jumpTimeLimit = 0.1f;
-    private bool attackTime = false;
+    public bool attackTime = false;
 
     private float moveSet;
     private Vector3 mainCamera;
