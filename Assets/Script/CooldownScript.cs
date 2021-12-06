@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,6 +12,7 @@ public class CooldownScript : MonoBehaviour
     private BalltaguScript mainScript;
     private AbilityScript ability;
     private float atttck_cooldown_time;
+    private bool cooltime = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,21 +26,23 @@ public class CooldownScript : MonoBehaviour
     {
         atttck_cooldown_time = ability.attackDestroyTime + ability.attackSpeed;
 
-        if (mainScript.inputAttack && !mainScript.attackTime)
+        if (mainScript.inputAttack && !cooltime)
             StartCoroutine(cooldown(atttck_cooldown_time));
     }
 
     IEnumerator cooldown(float time)
     {
+        cooltime = true;
         float start = time;
         while (time > 0)
         {
             time -= Time.deltaTime;
-            float temp = (float)(System.Math.Round(time * 10) / 10);
+            float temp = (float)(Math.Round(time * 10) / 10);
             cooldown_text.text = temp.ToString();
             cooldown_image.fillAmount = time / start;
             yield return new WaitForFixedUpdate();
         }
         cooldown_text.text = "";
+        cooltime = false;
     }
 }
