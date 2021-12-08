@@ -7,7 +7,7 @@ public class RongScript : MonoBehaviour
     GameObject player;
     AbilityScript playerAbility;
     AbilityScript ability;
-    private bool hpBar = false;
+    //private bool hpBar = false;
     public bool isPlayer = false;
     public bool isJumpingTime = false;
     public bool jumpingTimeStart = false;
@@ -62,11 +62,6 @@ public class RongScript : MonoBehaviour
         if (collision.gameObject.tag == "Floor")
         {
             gameObject.GetComponent<Animator>().SetBool("isJumping", false);
-        }
-
-        if (collision.gameObject.tag == "Player")
-        {
-            playerAbility.hp -= playerAbility.attackDamage;
         }
     }
 }

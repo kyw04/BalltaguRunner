@@ -346,7 +346,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -2211,6 +2211,75 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1733398790
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5391355295161657368, guid: 566a6ad27a9df384295a3a282d12cb78, type: 3}
+      propertyPath: entity
+      value: 
+      objectReference: {fileID: 684887309869779082, guid: 7fa9c7145549c5546b2da1d61368b537, type: 3}
+    - target: {fileID: 5391355295161657368, guid: 566a6ad27a9df384295a3a282d12cb78, type: 3}
+      propertyPath: distance
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 5391355295161657368, guid: 566a6ad27a9df384295a3a282d12cb78, type: 3}
+      propertyPath: spawningTime
+      value: 7.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5391355295161657369, guid: 566a6ad27a9df384295a3a282d12cb78, type: 3}
+      propertyPath: m_Name
+      value: Spawner_Obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 5391355295161657371, guid: 566a6ad27a9df384295a3a282d12cb78, type: 3}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 5391355295161657371, guid: 566a6ad27a9df384295a3a282d12cb78, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 5391355295161657371, guid: 566a6ad27a9df384295a3a282d12cb78, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5391355295161657371, guid: 566a6ad27a9df384295a3a282d12cb78, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5391355295161657371, guid: 566a6ad27a9df384295a3a282d12cb78, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5391355295161657371, guid: 566a6ad27a9df384295a3a282d12cb78, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5391355295161657371, guid: 566a6ad27a9df384295a3a282d12cb78, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5391355295161657371, guid: 566a6ad27a9df384295a3a282d12cb78, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5391355295161657371, guid: 566a6ad27a9df384295a3a282d12cb78, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5391355295161657371, guid: 566a6ad27a9df384295a3a282d12cb78, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5391355295161657371, guid: 566a6ad27a9df384295a3a282d12cb78, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 566a6ad27a9df384295a3a282d12cb78, type: 3}
 --- !u!1 &1739263048
 GameObject:
   m_ObjectHideFlags: 0
@@ -2976,12 +3045,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7347301284614947138, guid: 4b68e07966f0c3c44bee24ddf5a481a6, type: 3}
     - target: {fileID: 5391355295161657368, guid: 566a6ad27a9df384295a3a282d12cb78, type: 3}
+      propertyPath: distance
+      value: 48
+      objectReference: {fileID: 0}
+    - target: {fileID: 5391355295161657368, guid: 566a6ad27a9df384295a3a282d12cb78, type: 3}
       propertyPath: spawningTime
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5391355295161657369, guid: 566a6ad27a9df384295a3a282d12cb78, type: 3}
       propertyPath: m_Name
-      value: RongSpawner
+      value: Spawner_Rong
       objectReference: {fileID: 0}
     - target: {fileID: 5391355295161657371, guid: 566a6ad27a9df384295a3a282d12cb78, type: 3}
       propertyPath: m_RootOrder

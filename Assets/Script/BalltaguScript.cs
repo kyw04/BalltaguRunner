@@ -130,6 +130,7 @@ public class BalltaguScript : MonoBehaviour
         
         if (collision.gameObject.tag == "Monster")
         {
+            ability.hp -= collision.gameObject.GetComponent<AbilityScript>().attackDamage;
             StartCoroutine(invincibility_time());
         }
     }
