@@ -5,15 +5,18 @@ using UnityEngine;
 public class BalltaguScript : MonoBehaviour
 {
     public GameObject AttackBox;
-    AbilityScript ability;
+    private AbilityScript ability;
+    private CooldownScript dashCooldown;
     public bool inputLeft = false;
     public bool inputRight = false;
     public bool inputJump = false;
     public bool inputAttack = false;
+    public bool inputDash = false;
 
+    private bool Dashing = false;
     private bool isJumping = false;
-    private int jumpCountMax = 1;
-    private int doublejumpCount;
+    public int jumpCountMax = 2;
+    public int jumpCount;
     //private float jumpTimer;
     //private float jumpTimeLimit = 0.1f;
     public bool attackTime = false;
@@ -25,6 +28,7 @@ public class BalltaguScript : MonoBehaviour
     void Start()
     {
         ability = this.GetComponent<AbilityScript>();
+        dashCooldown = GameObject.Find("JumpButton").GetComponent<CooldownScript>();
     }
 
     // Update is called once per frame
@@ -49,30 +53,20 @@ public class BalltaguScript : MonoBehaviour
             gameObject.transform.position += new Vector3(ability.moveSpeed, 0, 0) * Time.deltaTime;
         }
 
-        if (inputJump && !isJumping)
+        if (inputJump && (!isJumping || jumpCount < jumpCountMax))
         {
+            inputJump = false;
             isJumping = true;
+            jumpCount++;
             gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
             gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up * ability.jumpPower, ForceMode2D.Force);
         }
-        //if (inputJump && jumpTimer < jumpTimeLimit)
-        //{
-        //    isJumping = true;
 
-        //    gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-        //    gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up * jumpPower * ((jumpTimer * 10) + 1f), ForceMode2D.Impulse);
-
-        //    jumpTimer += Time.deltaTime;
-        //}
-        if (isJumping && !inputJump && doublejumpCount < jumpCountMax)
+        if (inputDash && !Dashing)
         {
-            doublejumpCount++;
-            isJumping = false;
+            inputDash = false;
+            StartCoroutine(dash());
         }
-        //if (!isJumping)
-        //{
-        //    jumpTimer = 0.0f;
-        //}
 
         if (inputAttack && !attackTime && !GetComponent<Animator>().GetBool("isAttack"))
         {
@@ -120,12 +114,25 @@ public class BalltaguScript : MonoBehaviour
         yield return new WaitForSeconds(ability.attackSpeed);
         attackTime = false;
     }
+    IEnumerator dash()
+    {
+        GetComponent<SpriteRenderer>().color = new Color32(255, 255, 255, 90);
+        GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
+        Dashing = true;
+        gameObject.layer = 8;
+        yield return new WaitForSeconds(0.5f);
+        GetComponent<SpriteRenderer>().color = new Color32(255, 255, 255, 255);
+        GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation | RigidbodyConstraints2D.FreezePositionX;
+        gameObject.layer = 6;
+        yield return new WaitForSeconds(2.5f / ability.moveSpeed);
+        Dashing = false;
+    }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Floor")
         {
             isJumping = false;
-            doublejumpCount = 0;
+            jumpCount = 0;
         }
         
         if (collision.gameObject.tag == "Monster")

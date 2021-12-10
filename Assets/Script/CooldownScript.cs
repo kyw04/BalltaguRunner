@@ -8,31 +8,28 @@ public class CooldownScript : MonoBehaviour
 {
     public Image cooldown_image;
     public Text cooldown_text;
-    private GameObject balltagu;
-    private BalltaguScript mainScript;
-    private AbilityScript ability;
-    private float atttck_cooldown_time;
-    private bool cooltime = false;
+    public bool isReady = true;
+    public bool starting = false;
+    public float cooldownTime;
     // Start is called before the first frame update
     void Start()
     {
-        balltagu = GameObject.Find("Balltagu");
-        ability = balltagu.GetComponent<AbilityScript>();
-        mainScript = balltagu.GetComponent<BalltaguScript>();
+  
     }
 
     // Update is called once per frame
     void Update()
     {
-        atttck_cooldown_time = ability.attackDestroyTime + ability.attackSpeed;
-
-        if (mainScript.inputAttack && !cooltime)
-            StartCoroutine(cooldown(atttck_cooldown_time));
+        if (starting && isReady)
+        {
+            starting = false;
+            isReady = false;
+            StartCoroutine(startCooldown(cooldownTime));
+        }
     }
 
-    IEnumerator cooldown(float time)
+    IEnumerator startCooldown(float time)
     {
-        cooltime = true;
         float start = time;
         while (time > 0)
         {
@@ -43,6 +40,6 @@ public class CooldownScript : MonoBehaviour
             yield return new WaitForFixedUpdate();
         }
         cooldown_text.text = "";
-        cooltime = false;
+        isReady = true;
     }
 }
