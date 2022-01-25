@@ -66,9 +66,6 @@ public class BalltaguScript : MonoBehaviour
         if (inputDash && !Dashing)
         {
             inputDash = false;
-            int rand = Random.Range(1, 3);
-            Debug.Log(rand);
-            gameObject.GetComponent<Animator>().SetInteger("dash", rand);
             StartCoroutine(dash());
         }
 
@@ -120,6 +117,7 @@ public class BalltaguScript : MonoBehaviour
     }
     IEnumerator dash()
     {
+        gameObject.GetComponent<Animator>().SetInteger("dash", Random.Range(1, 3));
         GetComponent<SpriteRenderer>().color = new Color32(255, 255, 255, 90);
         GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
         Dashing = true;
