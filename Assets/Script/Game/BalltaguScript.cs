@@ -27,6 +27,7 @@ public class BalltaguScript : MonoBehaviour
     //Start is called before the first frame updatek
     void Start()
     {
+        GameObject.Find("EventSystem").GetComponent<ChangeScene>().StartScene();
         ability = this.GetComponent<AbilityScript>();
         dashCooldown = GameObject.Find("JumpButton").GetComponent<CooldownScript>();
     }

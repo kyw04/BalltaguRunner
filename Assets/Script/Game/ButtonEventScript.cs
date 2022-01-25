@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class ButtonEventScript : MonoBehaviour
 {
@@ -16,9 +18,12 @@ public class ButtonEventScript : MonoBehaviour
     void Start()
     {
         balltagu = GameObject.Find("Balltagu");
-        mainScript = balltagu.GetComponent<BalltaguScript>();
-        ability = balltagu.GetComponent<AbilityScript>();
-        time = 0;
+       if (balltagu)
+        {
+            mainScript = balltagu.GetComponent<BalltaguScript>();
+            ability = balltagu.GetComponent<AbilityScript>();
+            time = 0;
+        }
     }
     void Update()
     {
@@ -68,9 +73,6 @@ public class ButtonEventScript : MonoBehaviour
     {
         mainScript.inputAttack = false;
     }
-
-
-
     public void LeftButtonDown()
     {
         mainScript.inputLeft = true;
