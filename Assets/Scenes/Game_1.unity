@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -550,7 +550,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -8602276425756995686, guid: dcec9ad5d6bf9f34d871769c86ff62df, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 59b8751ab1faa0d4f931776f21bb7ec5, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1260,7 +1260,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -2627955715604160474, guid: dcec9ad5d6bf9f34d871769c86ff62df, type: 3}
+  m_Sprite: {fileID: 21300000, guid: dca336992cbe85b4e939552de79ed6fc, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1595,7 +1595,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -2627955715604160474, guid: dcec9ad5d6bf9f34d871769c86ff62df, type: 3}
+  m_Sprite: {fileID: 21300000, guid: dca336992cbe85b4e939552de79ed6fc, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2927,7 +2927,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -8602276425756995686, guid: dcec9ad5d6bf9f34d871769c86ff62df, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 59b8751ab1faa0d4f931776f21bb7ec5, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3311,6 +3311,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2685788647535761915, guid: a9a922384d64cad4f8cc34ee3a07064e, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 7c75fb34bf0aae34abd51dd19332381b, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a9a922384d64cad4f8cc34ee3a07064e, type: 3}
 --- !u!1001 &5391355295805540337

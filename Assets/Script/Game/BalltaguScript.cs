@@ -66,6 +66,9 @@ public class BalltaguScript : MonoBehaviour
         if (inputDash && !Dashing)
         {
             inputDash = false;
+            int rand = Random.Range(1, 3);
+            Debug.Log(rand);
+            gameObject.GetComponent<Animator>().SetInteger("dash", rand);
             StartCoroutine(dash());
         }
 
@@ -123,6 +126,7 @@ public class BalltaguScript : MonoBehaviour
         gameObject.layer = 8;
         yield return new WaitForSeconds(0.5f);
         GetComponent<SpriteRenderer>().color = new Color32(255, 255, 255, 255);
+        gameObject.GetComponent<Animator>().SetInteger("dash", 0);
         GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation | RigidbodyConstraints2D.FreezePositionX;
         gameObject.layer = 6;
         yield return new WaitForSeconds(2.5f / ability.moveSpeed);
