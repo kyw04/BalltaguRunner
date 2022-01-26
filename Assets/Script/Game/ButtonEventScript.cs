@@ -69,6 +69,7 @@ public class ButtonEventScript : MonoBehaviour
         cooldown.cooldownTime = ability.attackDestroyTime + ability.attackSpeed;
         cooldown.starting = true;
     }
+
     public void AttackButtonUp()
     {
         mainScript.inputAttack = false;

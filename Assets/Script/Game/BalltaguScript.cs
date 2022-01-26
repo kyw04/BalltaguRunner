@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BalltaguScript : MonoBehaviour
 {
+    public Text scoreText;
     public GameObject AttackBox;
+    public GameObject GameOver;
     private AbilityScript ability;
-    private CooldownScript dashCooldown;
     public bool inputLeft = false;
     public bool inputRight = false;
     public bool inputJump = false;
@@ -24,12 +26,15 @@ public class BalltaguScript : MonoBehaviour
     private float moveSet;
     private Vector3 mainCamera;
     private Vector3 player;
+
+    private int score;
     //Start is called before the first frame updatek
     void Start()
     {
+        score = 0;
+        GameOver.SetActive(false);
         GameObject.Find("EventSystem").GetComponent<ChangeScene>().StartScene();
         ability = this.GetComponent<AbilityScript>();
-        dashCooldown = GameObject.Find("JumpButton").GetComponent<CooldownScript>();
     }
 
     // Update is called once per frame
@@ -91,6 +96,10 @@ public class BalltaguScript : MonoBehaviour
         if (ability.hp > ability.maxHp)
         {
             ability.hp = ability.maxHp;
+        }
+        if (ability.hp <= 0)
+        {
+            GameOver.SetActive(true);
         }
     }
 
