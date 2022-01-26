@@ -48,6 +48,7 @@ public class RongScript : MonoBehaviour
         }
         if (ability.hp <= 0)
         {
+            player.GetComponent<BalltaguScript>().score += 6;
             Destroy(this.gameObject);
         }
     }

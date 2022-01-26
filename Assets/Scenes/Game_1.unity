@@ -680,7 +680,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &420552855
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3568,7 +3568,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 40
-    m_Alignment: 3
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -3866,6 +3866,10 @@ PrefabInstance:
       propertyPath: scoreText
       value: 
       objectReference: {fileID: 1049646638}
+    - target: {fileID: 2685788647535761863, guid: a9a922384d64cad4f8cc34ee3a07064e, type: 3}
+      propertyPath: GameOverScoreText
+      value: 
+      objectReference: {fileID: 1957119845}
     - target: {fileID: 2685788647535761912, guid: a9a922384d64cad4f8cc34ee3a07064e, type: 3}
       propertyPath: m_RootOrder
       value: 5
