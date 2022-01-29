@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class BalltaguScript : MonoBehaviour
 {
-    public Text scoreText;
+    public Text score;
     public Text GameOverScoreText;
     public GameObject AttackBox;
     public GameObject GameOver;
@@ -28,14 +28,9 @@ public class BalltaguScript : MonoBehaviour
     private Vector3 mainCamera;
     private Vector3 player;
 
-    public int score;
-    private int start_score;
-    private string score_txt;
     //Start is called before the first frame updatek
     void Start()
     {
-        score = 0;
-        start_score = score;
         GameOver.SetActive(false);
         GameObject.Find("EventSystem").GetComponent<ChangeScene>().StartScene();
         ability = this.GetComponent<AbilityScript>();
@@ -104,13 +99,7 @@ public class BalltaguScript : MonoBehaviour
         if (ability.hp <= 0)
         {
             GameOver.SetActive(true);
-            GameOverScoreText.text = "점수 : " + score;
-        }
-        else
-        {
-            if (start_score == score)
-                StartCoroutine(score_up(1));
-            scoreText.text = score_txt;
+            GameOverScoreText.text = score.GetComponent<TextUpdate>().text_data;
         }
     }
 
@@ -143,19 +132,12 @@ public class BalltaguScript : MonoBehaviour
         Dashing = true;
         gameObject.layer = 8;
         yield return new WaitForSeconds(0.5f);
+        gameObject.layer = 6;
         GetComponent<SpriteRenderer>().color = new Color32(255, 255, 255, 255);
         gameObject.GetComponent<Animator>().SetInteger("dash", 0);
         GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation | RigidbodyConstraints2D.FreezePositionX;
-        gameObject.layer = 6;
         yield return new WaitForSeconds(2.5f / ability.moveSpeed);
         Dashing = false;
-    }
-    IEnumerator score_up(float time)
-    {
-        score += 1;
-        yield return new WaitForSeconds(time);
-        start_score = score;
-        score_txt = "점수 : " + score;
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {

@@ -23,33 +23,31 @@ public class RongScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {    
-        if (!gameObject.GetComponent<Animator>().GetBool("isJumping") && isJumpingTime)
+        if (gameObject.layer == 7)
         {
-            gameObject.GetComponent<Animator>().SetBool("isJumping", true);
-            gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-            isJumpingTime = false;
-            if (isPlayer)
+            if (!gameObject.GetComponent<Animator>().GetBool("isJumping") && isJumpingTime)
             {
-                gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(ability.moveSpeed * 5.0f, ability.jumpPower * 2.0f));
+                gameObject.GetComponent<Animator>().SetBool("isJumping", true);
+                gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+                isJumpingTime = false;
+                if (isPlayer)
+                {
+                    gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(ability.moveSpeed * 5.0f, ability.jumpPower * 2.0f));
+                }
+                else
+                {
+                    gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(ability.moveSpeed, ability.jumpPower));
+                }
             }
-            else
+            if (!gameObject.GetComponent<Animator>().GetBool("isJumping") && !jumpingTimeStart && !isJumpingTime)
             {
-                gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(ability.moveSpeed, ability.jumpPower));
-            }
-        }
-        if (!gameObject.GetComponent<Animator>().GetBool("isJumping") && !jumpingTimeStart && !isJumpingTime)
-        {
-            gameObject.GetComponent<Animator>().Play("rong_idle");
-            jumpingTimeStart = true;
-            if (isPlayer) { jumpTimes = 0.5f; }
-            else { jumpTimes = 0.25f; }
+                gameObject.GetComponent<Animator>().Play("rong_idle");
+                jumpingTimeStart = true;
+                if (isPlayer) { jumpTimes = 0.5f; }
+                else { jumpTimes = 0.25f; }
 
-            StartCoroutine(jumping_time());
-        }
-        if (ability.hp <= 0)
-        {
-            player.GetComponent<BalltaguScript>().score += 6;
-            Destroy(this.gameObject);
+                StartCoroutine(jumping_time());
+            }
         }
     }
     IEnumerator jumping_time()
