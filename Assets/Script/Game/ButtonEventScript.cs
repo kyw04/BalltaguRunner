@@ -19,11 +19,11 @@ public class ButtonEventScript : MonoBehaviour
     {
         balltagu = GameObject.Find("Balltagu");
        if (balltagu)
-        {
+       {
             mainScript = balltagu.GetComponent<BalltaguScript>();
             ability = balltagu.GetComponent<AbilityScript>();
             time = 0;
-        }
+       }
     }
     void Update()
     {
@@ -63,17 +63,20 @@ public class ButtonEventScript : MonoBehaviour
     }
     public void AttackButtonDown()
     {
-        mainScript.inputAttack = true;
-        cooldownTarget = GameObject.Find("AttackButton");
-        cooldown = cooldownTarget.GetComponent<CooldownScript>();
-        cooldown.cooldownTime = ability.attackDestroyTime + ability.attackSpeed;
-        cooldown.starting = true;
+        if (balltagu.GetComponent<Animator>().GetInteger("dash") == 0)
+        {
+            mainScript.inputAttack = true;
+            cooldownTarget = GameObject.Find("AttackButton");
+            cooldown = cooldownTarget.GetComponent<CooldownScript>();
+            cooldown.cooldownTime = ability.attackDestroyTime + ability.attackSpeed;
+            cooldown.starting = true;
+        }
     }
-
     public void AttackButtonUp()
     {
         mainScript.inputAttack = false;
     }
+
     public void LeftButtonDown()
     {
         mainScript.inputLeft = true;

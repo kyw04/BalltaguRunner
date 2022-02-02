@@ -73,7 +73,7 @@ public class BalltaguScript : MonoBehaviour
             StartCoroutine(dash());
         }
 
-        if (inputAttack && !attackTime && !GetComponent<Animator>().GetBool("isAttack"))
+        if (inputAttack && !attackTime && !GetComponent<Animator>().GetBool("isAttack") && GetComponent<Animator>().GetInteger("dash") == 0)
         {
             attackTime = true;
             GetComponent<Animator>().SetBool("isAttack", true);
@@ -126,15 +126,15 @@ public class BalltaguScript : MonoBehaviour
     }
     IEnumerator dash()
     {
-        gameObject.GetComponent<Animator>().SetInteger("dash", Random.Range(1, 3));
-        GetComponent<SpriteRenderer>().color = new Color32(255, 255, 255, 90);
-        GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
         Dashing = true;
         gameObject.layer = 8;
+        gameObject.GetComponent<Animator>().SetInteger("dash", Random.Range(1, 3));
+        GetComponent<SpriteRenderer>().color = new Color32(255, 255, 255, 90);
+        GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;       
         yield return new WaitForSeconds(0.5f);
         gameObject.layer = 6;
-        GetComponent<SpriteRenderer>().color = new Color32(255, 255, 255, 255);
         gameObject.GetComponent<Animator>().SetInteger("dash", 0);
+        GetComponent<SpriteRenderer>().color = new Color32(255, 255, 255, 255);
         GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation | RigidbodyConstraints2D.FreezePositionX;
         yield return new WaitForSeconds(2.5f / ability.moveSpeed);
         Dashing = false;
@@ -149,8 +149,8 @@ public class BalltaguScript : MonoBehaviour
         
         if (collision.gameObject.tag == "Monster")
         {
-            ability.hp -= collision.gameObject.GetComponent<AbilityScript>().attackDamage;
             StartCoroutine(invincibility_time());
+            ability.hp -= collision.gameObject.GetComponent<AbilityScript>().attackDamage;
         }
     }
 }

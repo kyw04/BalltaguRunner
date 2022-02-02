@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Floor
   - Monster
+  - Coin
   layers:
   - Default
   - TransparentFX
@@ -18,7 +19,7 @@ TagManager:
   - Invincible
   - Floor
   - Obstacle
-  - 
+  - Coin
   - 
   - 
   - 

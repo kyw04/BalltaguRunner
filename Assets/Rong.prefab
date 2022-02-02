@@ -88,6 +88,7 @@ GameObject:
   - component: {fileID: 1934111739828960962}
   - component: {fileID: 3561936097490610218}
   - component: {fileID: 8956302417185608831}
+  - component: {fileID: 4792495014248804101}
   m_Layer: 7
   m_Name: Rong
   m_TagString: Monster
@@ -247,10 +248,10 @@ MonoBehaviour:
   maxHp: 3
   hp: 3
   attackDamage: 1
-  moveSpeed: -2.5
+  moveSpeed: 4
   jumpPower: 350
-  attackSpeed: 1.5
-  attackDestroyTime: 0.5
+  attackSpeed: 0
+  attackDestroyTime: 0
 --- !u!114 &3561936097490610218
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -276,4 +277,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   me: {fileID: 7347301284614947138}
-  time: 2
+  coin: {fileID: 8048575613637329878, guid: 1668d1ba178b47f4397239a9f9975c2c, type: 3}
+  maxCoin: 5
+  time: 1
+--- !u!114 &4792495014248804101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7347301284614947138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01fcd160909893f4a8ae4723dc4d5507, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

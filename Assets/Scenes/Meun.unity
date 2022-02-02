@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -381,6 +381,7 @@ GameObject:
   - component: {fileID: 156509155}
   - component: {fileID: 156509154}
   - component: {fileID: 156509153}
+  - component: {fileID: 156509158}
   m_Layer: 0
   m_Name: background_1
   m_TagString: Untagged
@@ -400,7 +401,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb3743f7da8e64742abf5b22f5b7d6b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.3
 --- !u!64 &156509154
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -478,6 +478,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &156509158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 156509152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbab0ea4c62235349b83a8c6c6bc7ad9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHp: 0
+  hp: 0
+  attackDamage: 0
+  moveSpeed: 0.3
+  jumpPower: 0
+  attackSpeed: 0
+  attackDestroyTime: 0
 --- !u!1 &326499778
 GameObject:
   m_ObjectHideFlags: 0
@@ -1143,6 +1162,7 @@ GameObject:
   - component: {fileID: 1622011495}
   - component: {fileID: 1622011494}
   - component: {fileID: 1622011493}
+  - component: {fileID: 1622011498}
   m_Layer: 0
   m_Name: background_2
   m_TagString: Untagged
@@ -1162,7 +1182,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb3743f7da8e64742abf5b22f5b7d6b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.2
 --- !u!64 &1622011494
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1240,6 +1259,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1622011498
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1622011492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbab0ea4c62235349b83a8c6c6bc7ad9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHp: 0
+  hp: 0
+  attackDamage: 0
+  moveSpeed: 0.2
+  jumpPower: 0
+  attackSpeed: 0
+  attackDestroyTime: 0
 --- !u!1 &1729730048
 GameObject:
   m_ObjectHideFlags: 0
@@ -1253,6 +1291,7 @@ GameObject:
   - component: {fileID: 1729730051}
   - component: {fileID: 1729730050}
   - component: {fileID: 1729730049}
+  - component: {fileID: 1729730054}
   m_Layer: 0
   m_Name: background_3
   m_TagString: Untagged
@@ -1272,7 +1311,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb3743f7da8e64742abf5b22f5b7d6b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.1
 --- !u!64 &1729730050
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1350,6 +1388,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1729730054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1729730048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbab0ea4c62235349b83a8c6c6bc7ad9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHp: 0
+  hp: 0
+  attackDamage: 0
+  moveSpeed: 0.1
+  jumpPower: 0
+  attackSpeed: 0
+  attackDestroyTime: 0
 --- !u!1 &1849288192
 GameObject:
   m_ObjectHideFlags: 0
