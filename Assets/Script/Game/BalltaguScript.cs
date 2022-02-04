@@ -10,13 +10,11 @@ public class BalltaguScript : MonoBehaviour
     public GameObject AttackBox;
     public GameObject GameOver;
     private AbilityScript ability;
-    public bool inputLeft = false;
-    public bool inputRight = false;
     public bool inputJump = false;
     public bool inputAttack = false;
     public bool inputDash = false;
     
-    private bool Dashing = false;
+    public bool Dashing = false;
     private bool isJumping = false;
     public int jumpCountMax = 2;
     public int jumpCount;
@@ -41,22 +39,6 @@ public class BalltaguScript : MonoBehaviour
     {
         if (Input.GetKey("escape"))
             Application.Quit();
-        if (!inputLeft && !inputRight)
-        {
-            this.gameObject.GetComponent<Animator>().SetBool("isWalk", false);
-        }
-        if (inputLeft)
-        {
-            gameObject.GetComponent<Animator>().SetBool("isWalk", true);
-            gameObject.transform.localScale = new Vector3(1, 1, 1);
-            gameObject.transform.position += new Vector3(-ability.moveSpeed, 0, 0) * Time.deltaTime;
-        }
-        if (inputRight)
-        {
-            gameObject.GetComponent<Animator>().SetBool("isWalk", true);
-            gameObject.transform.localScale = new Vector3(-1, 1, 1);
-            gameObject.transform.position += new Vector3(ability.moveSpeed, 0, 0) * Time.deltaTime;
-        }
 
         if (inputJump && (!isJumping || jumpCount < jumpCountMax))
         {
@@ -90,7 +72,8 @@ public class BalltaguScript : MonoBehaviour
             moveSet = -1;
        
         if (player.x < mainCamera.x + 0.125f && player.x < mainCamera.x - 0.125f || player.x > mainCamera.x + 0.125f && player.x > mainCamera.x - 0.125f)
-            gameObject.transform.position += new Vector3(moveSet * 5, 0, 0) * Time.deltaTime;
+            if (GetComponent<Rigidbody2D>().constraints != RigidbodyConstraints2D.FreezeAll)
+                gameObject.transform.position += new Vector3(moveSet * 5, 0, 0) * Time.deltaTime;
 
         if (ability.hp > ability.maxHp)
         {
@@ -128,14 +111,16 @@ public class BalltaguScript : MonoBehaviour
     {
         Dashing = true;
         gameObject.layer = 8;
+        GetComponent<Rigidbody2D>().AddForce(new Vector2(1500.0f, 0), ForceMode2D.Force);
         gameObject.GetComponent<Animator>().SetInteger("dash", Random.Range(1, 3));
         GetComponent<SpriteRenderer>().color = new Color32(255, 255, 255, 90);
+        yield return new WaitForSeconds(0.1f);
         GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;       
         yield return new WaitForSeconds(0.5f);
         gameObject.layer = 6;
         gameObject.GetComponent<Animator>().SetInteger("dash", 0);
         GetComponent<SpriteRenderer>().color = new Color32(255, 255, 255, 255);
-        GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation | RigidbodyConstraints2D.FreezePositionX;
+        GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation; //| RigidbodyConstraints2D.FreezePositionX;
         yield return new WaitForSeconds(2.5f / ability.moveSpeed);
         Dashing = false;
     }

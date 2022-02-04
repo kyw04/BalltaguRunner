@@ -60,7 +60,7 @@ public class ChangeScene : MonoBehaviour
         while (MainSceneTransition.fillAmount != num)
         {
             yield return new WaitForSeconds(0.0001f);
-            MainSceneTransition.fillAmount += -value * 0.01f;
+            MainSceneTransition.fillAmount += -value * 0.025f;
         }
         TransitionEnd = true;
 

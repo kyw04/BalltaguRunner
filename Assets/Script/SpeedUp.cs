@@ -23,11 +23,12 @@ public class SpeedUp : MonoBehaviour
     {
         if (score.data >= nextScore)
         {
+            SpeedUp speed = GameObject.Find("Score").GetComponent<SpeedUp>();
             nextScore *= 2.5f;
             Debug.Log(nextScore);
             if (ability != null) { ability.moveSpeed *= 1.15f; }
             if (this.gameObject.name == "Score") { level += 1; }
-            SpeedUp speed = GameObject.Find("Score").GetComponent<SpeedUp>();
+            if (player != null) { player.GetComponent<Rigidbody2D>().mass = 1 + (speed.level * 0.01f); }
             player.GetComponent<Animator>().SetFloat("walkSpeed", 1 + speed.level * 0.1f);
         }
     }

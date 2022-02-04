@@ -21,7 +21,10 @@ public class AttackScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        transform.position = player.transform.position + new Vector3(1, 0, 0);
+
+        if (balltaguScript.Dashing)
+            Destroy(this.gameObject);
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -29,7 +32,7 @@ public class AttackScript : MonoBehaviour
         {
             collisionAbility = collision.GetComponent<AbilityScript>();
             collisionAbility.hp -= playerAbility.attackDamage;
-
+            Sound.instance.PlaySound(0);
             collision.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
             collision.GetComponent<Rigidbody2D>().AddForce(new Vector2(750, 500));
         }

@@ -76,25 +76,4 @@ public class ButtonEventScript : MonoBehaviour
     {
         mainScript.inputAttack = false;
     }
-
-    public void LeftButtonDown()
-    {
-        mainScript.inputLeft = true;
-        //Debug.Log("Left Down!");
-    }
-    public void LeftButtonUp()
-    {
-        mainScript.inputLeft = false;
-        //Debug.Log("Left UP!");
-    }
-    public void RightButtonDown()
-    {
-        mainScript.inputRight = true;
-        //Debug.Log("Right Down!");
-    }
-    public void RightButtonUp()
-    {
-        mainScript.inputRight = false;
-        //Debug.Log("Right UP!");
-    }
 }
