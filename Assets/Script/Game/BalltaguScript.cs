@@ -82,6 +82,7 @@ public class BalltaguScript : MonoBehaviour
         if (ability.hp <= 0)
         {
             GameOver.SetActive(true);
+            Time.timeScale = 0;
             GameOverScoreText.text = score.GetComponent<TextUpdate>().text_data;
         }
     }

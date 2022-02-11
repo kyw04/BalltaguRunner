@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class ButtonEventScript : MonoBehaviour
 {
+    public GameObject[] gameObjects;
     private GameObject cooldownTarget;
     private GameObject balltagu;
     private BalltaguScript mainScript;
@@ -17,13 +18,14 @@ public class ButtonEventScript : MonoBehaviour
     public float dash = 0.25f;
     void Start()
     {
+        Close();
         balltagu = GameObject.Find("Balltagu");
-       if (balltagu)
-       {
+        if (balltagu)
+        {
             mainScript = balltagu.GetComponent<BalltaguScript>();
             ability = balltagu.GetComponent<AbilityScript>();
             time = 0;
-       }
+        }
     }
     void Update()
     {
@@ -75,5 +77,20 @@ public class ButtonEventScript : MonoBehaviour
     public void AttackButtonUp()
     {
         mainScript.inputAttack = false;
+    }
+
+    public void Close()
+    {
+        Time.timeScale = 1;
+        for (int i = 0; i < gameObjects.Length; i++)
+        {
+            if (gameObjects[i] != null) { gameObjects[i].SetActive(false); }
+        }
+    }
+
+    public void SettingButtonClick()
+    {
+        gameObjects[0].SetActive(true);
+        Time.timeScale = 0;
     }
 }
