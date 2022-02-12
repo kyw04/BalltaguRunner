@@ -2,11 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class SLManager : MonoBehaviour
 {
-    public Slider volume;
-    private static SLManager instance;
     void Start()
     {
         
@@ -18,6 +17,12 @@ public class SLManager : MonoBehaviour
     }
     public void VolumeSave()
     {
-        PlayerPrefs.SetFloat("Volume", volume.value);
+        string name = EventSystem.current.currentSelectedGameObject.name;
+        GameObject slider = GameObject.Find(name);
+        if (slider != null)
+        {
+            Slider volume = slider.GetComponent<Slider>();
+            PlayerPrefs.SetFloat(name, volume.value);
+        }
     }
 }

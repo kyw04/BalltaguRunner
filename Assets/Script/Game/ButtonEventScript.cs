@@ -16,6 +16,7 @@ public class ButtonEventScript : MonoBehaviour
     public bool jumpButtonDown = false;
     private float time;
     public float dash = 0.25f;
+    
     void Start()
     {
         Close();

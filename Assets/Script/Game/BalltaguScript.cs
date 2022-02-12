@@ -40,6 +40,9 @@ public class BalltaguScript : MonoBehaviour
         if (Input.GetKey("escape"))
             Application.Quit();
 
+        if (Input.GetKeyDown(KeyCode.D))
+            PlayerPrefs.DeleteAll();
+
         if (inputJump && (!isJumping || jumpCount < jumpCountMax))
         {
             inputJump = false;
