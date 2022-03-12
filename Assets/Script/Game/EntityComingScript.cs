@@ -14,7 +14,6 @@ public class EntityComingScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
         gameObject.transform.position += new Vector3(-ability.moveSpeed, 0, 0) * Time.deltaTime;
     }
 }

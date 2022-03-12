@@ -37,52 +37,57 @@ public class BalltaguScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey("escape"))
+        if (Input.GetKey("escape")) // 나가기
             Application.Quit();
 
         if (Input.GetKeyDown(KeyCode.D))
             PlayerPrefs.DeleteAll();
 
-        if (inputJump && (!isJumping || jumpCount < jumpCountMax))
+        if (inputJump && (!isJumping || jumpCount < jumpCountMax)) // 점프
         {
             inputJump = false;
             isJumping = true;
             jumpCount++;
             gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
             gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up * ability.jumpPower, ForceMode2D.Force);
+            if (jumpCount == 2)
+            {
+                GetComponent<Animator>().Play("balltagu_double_jump");
+                GetComponent<Animator>().SetBool("isDoubleJump", true);
+            }
         }
 
-        if (inputDash && !Dashing)
+        if (inputDash && !Dashing) // 대쉬
         {
             inputDash = false;
             StartCoroutine(dash());
         }
 
-        if (inputAttack && !attackTime && !GetComponent<Animator>().GetBool("isAttack") && GetComponent<Animator>().GetInteger("dash") == 0)
+        if (inputAttack && !attackTime && !GetComponent<Animator>().GetBool("isAttack") && GetComponent<Animator>().GetInteger("dash") == 0) // 공격
         {
             attackTime = true;
+            GetComponent<Animator>().Play("balltagu_attack");
             GetComponent<Animator>().SetBool("isAttack", true);
+            GetComponent<Animator>().SetBool("isDoubleJump", false);
             GameObject newAttackBox = Instantiate(AttackBox);
             newAttackBox.transform.position = transform.position + new Vector3(1, 0, 0);
             StartCoroutine(attack_time(newAttackBox));
         }
 
+        // 캐릭터 이동
         mainCamera = Camera.main.transform.position + new Vector3(-6.25f, 0, 0);
         player = gameObject.transform.position;
         if (player.x < mainCamera.x)
             moveSet = 1;
         else
             moveSet = -1;
-       
-        if (player.x < mainCamera.x + 0.125f && player.x < mainCamera.x - 0.125f || player.x > mainCamera.x + 0.125f && player.x > mainCamera.x - 0.125f)
+
+        if (player.x < mainCamera.x + 0.125f && player.x < mainCamera.x - 0.125f || player.x > mainCamera.x + 0.125f && player.x > mainCamera.x - 0.125f) 
             if (GetComponent<Rigidbody2D>().constraints != RigidbodyConstraints2D.FreezeAll)
                 gameObject.transform.position += new Vector3(moveSet * 5, 0, 0) * Time.deltaTime;
+        //
 
-        if (ability.hp > ability.maxHp)
-        {
-            ability.hp = ability.maxHp;
-        }
-        if (ability.hp <= 0)
+        if (ability.hp <= 0) // 사망 메세지
         {
             GameOver.SetActive(true);
             Time.timeScale = 0;
@@ -90,10 +95,10 @@ public class BalltaguScript : MonoBehaviour
         }
     }
 
-    IEnumerator invincibility_time()
+    IEnumerator invincibility_time() // 무적
     {
         gameObject.layer = 8;
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < 4; i++) // 깜빡이
         {
             GetComponent<SpriteRenderer>().color = new Color32(255, 255, 255, 90);
             yield return new WaitForSeconds(0.5f);
@@ -103,40 +108,45 @@ public class BalltaguScript : MonoBehaviour
         gameObject.layer = 6;
         GetComponent<SpriteRenderer>().color = new Color32(255, 255, 255, 255);
     }
-    IEnumerator attack_time(GameObject attack)
+    IEnumerator attack_time(GameObject attack) // 공격 속도
     {
         yield return new WaitForSeconds(ability.attackDestroyTime);
-        Destroy(attack.gameObject);
+        Destroy(attack.gameObject); // 공겨 히트 박스 삭제
         GetComponent<Animator>().SetBool("isAttack", false);
         yield return new WaitForSeconds(ability.attackSpeed);
         attackTime = false;
     }
-    IEnumerator dash()
+    IEnumerator dash() // 대쉬
     {
+        int rand = Random.Range(1, 3);
         Dashing = true;
-        gameObject.layer = 8;
-        GetComponent<Rigidbody2D>().AddForce(new Vector2(1500.0f, 0), ForceMode2D.Force);
-        gameObject.GetComponent<Animator>().SetInteger("dash", Random.Range(1, 3));
-        GetComponent<SpriteRenderer>().color = new Color32(255, 255, 255, 90);
+        gameObject.layer = 8; // 무적 레이어로 변경
+        GetComponent<Animator>().Play("balltagu_dash_" + rand);
+        GetComponent<Rigidbody2D>().AddForce(new Vector2(1500.0f, 0), ForceMode2D.Force); // 앞으로 대쉬
+        GetComponent<Animator>().SetInteger("dash", rand);
+        GetComponent<SpriteRenderer>().color = new Color32(255, 255, 255, 90); // 색상 변경
         yield return new WaitForSeconds(0.1f);
-        GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;       
+        GetComponent<Animator>().SetBool("isDoubleJump", false);
+        GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll; // 공중에 남아있기       
         yield return new WaitForSeconds(0.5f);
-        gameObject.layer = 6;
-        gameObject.GetComponent<Animator>().SetInteger("dash", 0);
-        GetComponent<SpriteRenderer>().color = new Color32(255, 255, 255, 255);
+        gameObject.layer = 6; // 기본 레이어로 변경
+        gameObject.GetComponent<Animator>().SetInteger("dash", 0); // 에니메이션 변경
+        GetComponent<SpriteRenderer>().color = new Color32(255, 255, 255, 255); // 색상 변경
         GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation; //| RigidbodyConstraints2D.FreezePositionX;
         yield return new WaitForSeconds(2.5f / ability.moveSpeed);
         Dashing = false;
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Floor")
+        if (collision.gameObject.tag == "Floor") // 바닥 밟음
         {
             isJumping = false;
             jumpCount = 0;
+            GetComponent<Animator>().Play("balltagu_walk");
+            GetComponent<Animator>().SetBool("isDoubleJump", false);
         }
         
-        if (collision.gameObject.tag == "Monster")
+        if (collision.gameObject.tag == "Monster") // 몬스터 충돌
         {
             StartCoroutine(invincibility_time());
             ability.hp -= collision.gameObject.GetComponent<AbilityScript>().attackDamage;

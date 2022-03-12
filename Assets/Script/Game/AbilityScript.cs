@@ -11,4 +11,12 @@ public class AbilityScript : MonoBehaviour
     public float jumpPower = 500.0f;
     public float attackSpeed = 0.5f;
     public float attackDestroyTime = 0.25f;
+
+    private void Update()
+    {
+        if (hp > maxHp)
+        {
+            hp = maxHp;
+        }
+    }
 }

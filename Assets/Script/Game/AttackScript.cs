@@ -28,13 +28,17 @@ public class AttackScript : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        collisionAbility = collision.GetComponent<AbilityScript>();
         if (collision.gameObject.tag == "Monster")
         {
-            collisionAbility = collision.GetComponent<AbilityScript>();
             collisionAbility.hp -= playerAbility.attackDamage;
             Sound.instance.PlaySound(0);
             collision.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
             collision.GetComponent<Rigidbody2D>().AddForce(new Vector2(750, 500));
+        }
+        if (collision.gameObject.tag == "Box")
+        {
+            collisionAbility.hp -= playerAbility.attackDamage;
         }
     }
 }

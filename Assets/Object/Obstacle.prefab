@@ -141,7 +141,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHp: 1000
-  hp: 1000
+  hp: 1080
   attackDamage: 1
   moveSpeed: 4
   jumpPower: 0
@@ -159,6 +159,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01fcd160909893f4a8ae4723dc4d5507, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  level: 1
 --- !u!1 &4771882157062252857
 GameObject:
   m_ObjectHideFlags: 0
