@@ -18,7 +18,11 @@ public class Button : MonoBehaviour
 
     void Update()
     {
-        
+       
+    }
+    void OnApplicationQuit()
+    {
+        Application.Quit();
     }
 
     public void Close()
@@ -50,5 +54,4 @@ public class Button : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         GameObject.Find("EventSystem").GetComponent<ChangeScene>().EndScene(1);
     }
-
 }
