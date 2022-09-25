@@ -5,31 +5,41 @@ using UnityEngine.UI;
 
 public class VolumeManager : MonoBehaviour
 {
+    private string[] volumeName = { "Volume", "BackgroundVolume", "EffectVolume" };
+    private GameObject volume;
     public AudioSource[] audioSource;
-    public Slider[] volumeSlider;
     public Text[] volumeText;
-    
+    public GameObject setting;
+
+    void Start()
+    {
+
+    }
+
     void Update()
     {
-        for (int i = 0; i < volumeSlider.Length; i++)
+        if (setting != null)
+        for (int i = 0; i < volumeName.Length; i++)
         {
-            if (volumeSlider[i] != null)
+            volume = GameObject.Find(volumeName[i]);
+            if (volume != null)
             {
-                //if (PlayerPrefs.HasKey(volumeSlider[i].name))
-                //{
-                //    Debug.Log(volumeSlider[i].name + ", " + volumeSlider[i].value);
-                //    volumeSlider[i].value = PlayerPrefs.GetFloat(volumeSlider[i].name); // 뭔가 문제 있음
-                //}
-                //else
-                //{
-                //    volumeSlider[i].value = 0.5f; // 뭔가 문제 있음
-                //}
-                volumeText[i].text = volumeSlider[i].value.ToString("F");
+                Slider slider = volume.GetComponent<Slider>();
+                if (PlayerPrefs.HasKey(volume.name))
+                {
+                    Debug.Log(PlayerPrefs.GetFloat(volume.name));
+                    slider.value = PlayerPrefs.GetFloat(volume.name); // 뭔가 문제 있음
+                }
+                else
+                {
+                    slider.value = 0.5f;
+                }
+                volumeText[i].text = slider.value.ToString("F");
             }
-            if (i < audioSource.Length)
+            if (i < audioSource.Length && volumeName[i + 1] != null)
             {
-                if (PlayerPrefs.HasKey(volumeSlider[i + 1].name))
-                    audioSource[i].volume = PlayerPrefs.GetFloat(volumeSlider[i + 1].name);
+                if (PlayerPrefs.HasKey(volumeName[i + 1]))
+                    audioSource[i].volume = PlayerPrefs.GetFloat(volumeName[i + 1]);
                 else
                     audioSource[i].volume = 0.5f;
                 if (PlayerPrefs.HasKey("Volume"))
